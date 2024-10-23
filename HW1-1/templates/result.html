@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回歸結果</title>
+</head>
+<body>
+    <h1>線性回歸結果</h1>
+    <p>擬合出的回歸方程為: y = {{ slope }}x + {{ intercept }}</p>
+    <img src="{{ url_for('static', filename='regression_plot.png') }}" alt="回歸圖">
+    <br><br>
+    <a href="{{ url_for('index') }}">返回</a>
+</body>
+</html>

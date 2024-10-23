@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>線性回歸模型</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>線性回歸參數調整與結果</h1>
+
+    <form method="POST">
+        <label for="a">斜率 a:</label>
+        <input type="number" step="0.1" id="a" name="a" value="2.0"><br><br>
+
+        <label for="b">截距 b:</label>
+        <input type="number" step="0.1" id="b" name="b" value="1.0"><br><br>
+
+        <label for="num_points">資料點數量:</label>
+        <input type="number" id="num_points" name="num_points" value="50"><br><br>
+
+        <label for="noise">噪聲強度:</label>
+        <input type="number" step="0.1" id="noise" name="noise" value="1.0"><br><br>
+
+        <button type="submit">生成模型</button>
+    </form>
+
+    <!-- 如果已經有回歸結果，就顯示它 -->
+    {% if slope and intercept %}
+        <h2>回歸結果</h2>
+        <p>擬合出的回歸方程為: y = {{ slope }}x + {{ intercept }}</p>
+        <img src="{{ url_for('static', filename='regression_plot.png') }}" alt="回歸圖">
+    {% endif %}
+
+</body>
+</html>
